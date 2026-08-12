@@ -65,7 +65,7 @@ header p {
 }
 
 .word-item {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #02b8a8 0%, #18a013 100%);
     color: white;
     padding: 10px 15px;
     border-radius: 8px;
@@ -97,7 +97,7 @@ header p {
     background: #f8f9fa;
     padding: 20px;
     border-radius: 10px;
-    border: 2px solid #764ba2;
+    border: 2px solid #18a013;
 }
 
 .phrases-container h3 {
@@ -184,7 +184,7 @@ header p {
 }
 
 .btn-check {
-    background: linear-gradient(135deg, #02b8a8 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #02b8a8 0%, #18a013 100%);
     color: white;
 }
 
