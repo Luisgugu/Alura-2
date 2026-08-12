@@ -1,0 +1,313 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #667eea;
+}
+
+header p {
+    font-size: 1.1em;
+    color: #666;
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+/* Banco de Palavras */
+.words-bank {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #667eea;
+}
+
+.words-bank h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.words-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.word-item {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: move;
+    user-select: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.word-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.word-item.dragging {
+    opacity: 0.6;
+    transform: scale(0.95);
+}
+
+.word-item.used {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: #ccc;
+}
+
+/* Frases */
+.phrases-container {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #764ba2;
+}
+
+.phrases-container h3 {
+    color: #764ba2;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.phrase {
+    background: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    line-height: 1.8;
+    font-size: 1.05em;
+}
+
+.phrase p {
+    color: #333;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+
+.blank {
+    min-width: 100px;
+    height: 40px;
+    background: #fff9e6;
+    border: 2px dashed #ffc107;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    font-weight: bold;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.blank:hover {
+    background: #fff3cd;
+    border-color: #ff9800;
+}
+
+.blank.filled {
+    background: #e8f5e9;
+    border-color: #4caf50;
+    color: #2e7d32;
+    cursor: default;
+    border-style: solid;
+}
+
+.blank.filled.incorrect {
+    background: #ffebee;
+    border-color: #f44336;
+    color: #c62828;
+}
+
+.blank.filled word-span {
+    display: inline;
+}
+
+/* Controles */
+.controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 12px 30px;
+    font-size: 1.05em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-check {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-check:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-check:active {
+    transform: translateY(0);
+}
+
+.btn-reset {
+    background: #ff6b6b;
+    color: white;
+}
+
+.btn-reset:hover {
+    background: #ff5252;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-reset:active {
+    transform: translateY(0);
+}
+
+/* Mensagem de Resultado */
+.result-message {
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    min-height: 30px;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.result-message.show {
+    display: block;
+}
+
+.result-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 2px solid #4caf50;
+}
+
+.result-message.partial {
+    background: #fff3cd;
+    color: #856404;
+    border: 2px solid #ffc107;
+}
+
+.result-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 2px solid #f44336;
+}
+
+/* Placar */
+.score-board {
+    text-align: center;
+    padding: 15px;
+    background: #f0f0f0;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .game-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .phrase {
+        padding: 10px;
+        font-size: 1em;
+    }
+
+    .blank {
+        min-width: 80px;
+        height: 35px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    header p {
+        font-size: 0.95em;
+    }
+
+    .word-item {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+    .phrase p {
+        font-size: 0.95em;
+        gap: 5px;
+    }
+}
