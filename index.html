@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Palavras - Inteligência Artificial</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 Jogo de Palavras - Inteligência Artificial</h1>
+            <p>Arraste as palavras para completar as frases sobre IA</p>
+        </header>
+
+        <div class="game-container">
+            <!-- Palavras para arrastar -->
+            <div class="words-bank">
+                <h3>Palavras Disponíveis:</h3>
+                <div class="words-list" id="wordsList">
+                    <!-- As palavras serão adicionadas por JavaScript -->
+                </div>
+            </div>
+
+            <!-- Frases para completar -->
+            <div class="phrases-container">
+                <h3>Complete as frases:</h3>
+                <div class="phrases" id="phrasesContainer">
+                    <!-- As frases serão adicionadas por JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Botões de controle -->
+        <div class="controls">
+            <button id="resetBtn" class="btn btn-reset">🔄 Recomeçar</button>
+            <button id="checkBtn" class="btn btn-check">✓ Verificar</button>
+        </div>
+
+        <!-- Resultado -->
+        <div id="resultMessage" class="result-message"></div>
+
+        <!-- Placar -->
+        <div class="score-board">
+            <p id="score">Acertos: 0 / 0</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
