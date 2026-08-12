@@ -29,7 +29,7 @@ header {
 header h1 {
     font-size: 2.5em;
     margin-bottom: 10px;
-    color: #667eea;
+    color: #02b8a8;
 }
 
 header p {
@@ -49,11 +49,11 @@ header p {
     background: #f8f9fa;
     padding: 20px;
     border-radius: 10px;
-    border: 2px solid #667eea;
+    border: 2px solid #02b8a8;
 }
 
 .words-bank h3 {
-    color: #667eea;
+    color: #02b8a8;
     margin-bottom: 15px;
     font-size: 1.2em;
 }
@@ -184,7 +184,7 @@ header p {
 }
 
 .btn-check {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #02b8a8 0%, #764ba2 100%);
     color: white;
 }
 
